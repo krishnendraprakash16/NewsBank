@@ -1,0 +1,125 @@
+<ion-app>
+
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="font_medium" size="large"> आपका सहर 
+    </ion-title>
+
+
+<ion-buttons slot="secondary">
+ 
+      <ion-button (click)="save()">
+        Save
+       </ion-button>
+  
+   
+   
+  
+   
+  
+  
+    </ion-buttons>
+ 
+
+  </ion-toolbar>
+</ion-header>
+ 
+
+
+
+<ion-content   class="ion-padding">
+  
+ <ion-row class="pb-2">
+ 	<ion-col class="user_other_districts_container">
+ 		
+ 		<button class="badge badge1 badge-light">{{user_district}}</button>
+
+ 		<button class="badge badge1 badge-light district_item_{{user_other_district}}" *ngFor="let user_other_district of user_other_districts;let i = index">
+ 			{{user_other_district}} <span   (click)="remove_district(user_other_district)"> X </span>
+ 		</button>
+
+
+
+ 	</ion-col>
+ </ion-row> 
+  
+<ion-row>
+	<ion-col>
+		<ion-input class="border_txt_fld" type="text" (ionInput)="search($event)"></ion-input>
+	</ion-col>
+</ion-row>
+  
+    
+    
+    <div id="skeleton" *ngIf="!districts">
+
+  <div class="custom-skeleton">
+
+      <ion-thumbnail slot="start" animated style="width: 31%;height:38px;float: left;margin:4px ">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-thumbnail>
+ 
+
+     <ion-thumbnail slot="start" animated style="width: 31%;height:38px;float: left;margin:4px">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-thumbnail>
+ 
+
+     <ion-thumbnail slot="start" animated style="width: 31%;height:38px;float: left;margin:4px">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-thumbnail>
+
+
+  </div>
+
+   
+</div>
+
+
+
+<ion-list size="12" class="btn_district_container"  >
+ 
+  <ion-item class="btn_district_inner ion-no-padding" lines="none" *ngFor="let district of districts"  >
+
+     
+    <div  style="background:{{district?.bg_color_code}}" class="btn_district" (click)="choose_district(district?.did,district?.title)"> 
+
+  {{district?.title}}
+
+	</div>
+
+   </ion-item>
+
+
+   
+  
+  </ion-list>
+ 
+
+
+
+ 
+
+
+ 
+
+
+
+ 
+ 
+
+</ion-content>	
+
+ 
+
+
+
+
+   
+
+ 
+ 
+</ion-app>

@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="background:#000000;color:#ffffff;text-align:center;justify-content: center;align-items: center;">
+ 
+ <div class="ion-padding" *ngIf="!embed_url">
+ 	Currently not available !
+
+ </div>
+
+<!--   <ion-spinner class="ion-padding spinner_radio_player" style="text-align: center;width: 100%;margin-top:20px;"  *ngIf="embed_url" color="primary"></ion-spinner> -->
+
+<!-- <img  *ngIf="embed_url" src="../assets/images/animated-music-image.gif"> -->
+<embed   id="radio_embed" [src]='sanitizer.bypassSecurityTrustResourceUrl(embed_url)' width="95%"   >
+	
+
+</ion-content>

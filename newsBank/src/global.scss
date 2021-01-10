@@ -1,0 +1,515 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+
+
+ion-refresher.refresher-native {
+  display: block;
+  z-index: 999999!important;
+}
+
+.bg_color1{
+	background-color:blue;
+	color:#fff;
+}
+
+.cat_heading_container{
+	position:relative;
+	width:100%;
+	height:40px;
+}
+
+.cat_heading{
+     min-width:170px;
+    position:absolute;
+    
+    border-right: 30px solid white
+}
+
+ 
+ .cat_heading .cat_heading_left{
+    padding: 0px;
+    position: absolute;
+    top: -28px;
+    left: -14px;
+    text-indent: 36px;
+    font-size: 15px;
+    font-weight: bold;
+
+ }
+
+
+
+  .cat_heading_right{
+    padding: 0px;
+    position: absolute;
+    top: 5px;
+    right: 29px;
+    text-indent: 36px;
+    font-size: 15px;
+    font-weight: bold;
+
+
+ }
+
+ .font_medium{
+    font-size: 15px;
+ }
+
+ .action-sheet-title.sc-ion-action-sheet-md {
+    height: auto;
+ }
+
+
+ ion-modal {
+   .modal-wrapper {
+       height: 25%!important;
+       
+       
+   }
+}
+
+.sc-ion-modal-md-h{
+   bottom:-383px!important;
+}
+
+
+.ion-color.sc-ion-searchbar-md-h .searchbar-input.sc-ion-searchbar-md {
+     
+    box-shadow: none!important;
+}
+
+
+.home_secondary_heading{
+ 
+}
+
+
+
+ .ion_slides_home {
+  margin-top: 0px;
+}
+
+
+ .ion_slides_home .slide-1{
+  margin-top: 171px!important;
+}
+
+
+
+.custom_add_available_home_page .ion_slides_home{
+  margin-top: 265px!important;
+}
+
+.alert_exit{
+    --max-width: 87%;
+}
+
+.alert_exit .alert-wrapper{
+	width: 100%;
+
+}
+
+.alert_exit .alert-button:first-of-type{
+     
+    left: -45%;
+ 
+}
+
+.alert_exit .alert-button{
+font-size:16px;     
+ 
+}
+
+.alert-button-group-vertical.sc-ion-alert-md {
+  -ms-flex-direction:  initial!important;
+  flex-direction: initial!important;
+}
+
+.home_user_district_news_container{
+ 
+    top: 52px;
+}
+
+ion-segment-button{
+  min-height: 35px;
+  height: 35px;
+}
+
+
+.top_bar_container{
+    height:48px!important;
+    min-height: 48px!important;
+}
+
+.border_txt_fld{
+    border: 1px solid #3f5c8f;
+}
+
+
+.btn_district_container{
+    display: flex;
+    flex-wrap:wrap;
+    
+}
+
+.btn_district_inner{
+  padding: 1px 0px!important;
+    font-size: 14px;
+    border-radius: 3px;
+    width: 33%;
+}  
+
+.btn_district{
+    color: #fff;
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+}  
+
+
+ 
+
+
+
+.btn_tag_container{
+    display: flex;
+    flex-wrap:wrap;
+    
+}
+
+.btn_tag_inner{
+  padding: 1px 0px!important;
+    font-size: 14px;
+    border-radius: 3px;
+    width: 49%;
+}  
+
+
+.top_scroll_inner ion-title{
+  text-align: left;
+  font-size: 13px;
+
+ }
+
+ .text_2_lines{
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+  display: -webkit-box; 
+  -webkit-line-clamp: 2; 
+  line-height: 23px; 
+  max-height: 44px; 
+  -webkit-box-orient: vertical;
+ }
+
+  .text_3_lines{
+     overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-height: 26px;
+    max-height: 79px;
+    -webkit-box-orient: vertical;
+ }
+
+ 
+
+ .live_tv_logo_container{
+  width: 100%;
+  height: 73px;
+ }
+
+ .live_tv_logo_container img{
+  vertical-align: middle;
+      max-height: 70px;
+ }
+
+ .live_tv_item{
+  text-align: center;
+    padding: 7px;
+    height: 107px;
+ }
+
+
+ 
+ #live_tv_embed_iframe{
+  height: 215px;
+  width: 100%;
+  overflow: hidden;position: fixed;z-index: 99999;    
+    top: 0px;
+    left: 0px;
+
+ }
+
+ #live_tv_embed_iframe html{
+  overflow: hidden;
+ }
+
+.live_tv_container{
+      width: 100%;
+     height: 250px;
+    overflow: hidden;
+    margin: 0px;
+    padding: 0px;
+    background: #fff;
+    position: fixed;
+    z-index: 999;
+    background:#000;
+}
+
+.landscape .live_tv_container{
+  height: 100%!important;
+
+}
+
+
+.live_tv_current_title{
+  position: absolute;
+    bottom: 5px;
+    left: 21px;
+    color: #fff;
+}
+
+
+ .live_tv_item_container{
+  padding-top: 255px;
+
+ }
+
+ .portrait .live_tv_item_container{
+ 
+ }
+
+
+ .landscape .live_tv_item_container{
+  display: none;
+ }
+
+.icon_video_full_screen{
+ position: absolute;
+   
+    color: #ffffff;
+    z-index: 9999999!important;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 30px;
+}
+
+.portrait .icon_video_full_screen{
+    right: 20px;
+    bottom: 40px;
+}
+
+ .landscape .icon_video_full_screen{
+    right: 20px;
+    bottom: 40px;
+}
+
+.landscape #live_tv_embed{
+  position: absolute;
+ 
+   width: 100%;
+  height: 100%;
+ 
+  z-index: 999999;
+  visibility: visible;
+}
+
+
+ion-toolbar{
+  --min-height:43px!important;
+}
+
+ion-toolbar ion-label{
+  height:33px!important;
+}
+
+
+ion-card{
+  padding: 5px;
+  margin: 3px 1px;
+}
+
+ion-label{
+  padding: 0px;
+  margin: 0px;
+}
+
+.news_item_r2 .input-wrapper {
+  height: 30px!important;
+}
+
+ion-thumbnail{
+  margin: 0px;
+  padding: 0px;
+}
+
+.cat_list_first_img{
+  height: 100%;
+  width: 100%;
+}
+
+.swiper-slide img {
+    max-width: 100%;
+   /* min-height: 100%; */
+    max-height: 100%;
+}
+
+.ion_slides_radio .swiper-slide img{
+  max-width: 100%;
+   min-height: 100%;  
+   max-height: 100%;
+}
+
+.home_user_city_news{
+ 
+  background:#eff3f6;
+}
+
+.news_listing_title{
+  font-size: 15px;
+}
+ 
+
+.ellipsis_vertical {
+  font-size: 20px;
+  position: absolute;
+  right: 8px;
+}
+
+.home_user_city_news_r2{
+   display:inline-flex;
+  width: 100%;
+  padding: 5px 10px 10px 10px;
+  background:#eff3f6;
+
+}
+
+.news_item_list_card_container{
+  height: 109px;
+}
+
+.news_item_list_card_container_row{
+  height: 100%;
+}
+
+
+.news_item_list_r2{
+--inner-padding-top:0px;
+--min-height:25px;
+--inner-padding-start:0px;
+}
+
+
+ 
+
+.news_list_bottom_info_left{
+  color: #949292;
+}
+
+
+.news_list_bottom_info_right{
+  color:dodgerblue;
+}
+
+
+
+
+ 
+
+
+.top_scroll_container{
+  display: inline-flex;
+}
+
+.top_scroll_inner {
+   
+    display: inline-flex;
+}
+
+
+#custom_ad_modal .modal-body,#custom_ad_modal_my_city .modal-body {
+   
+    height: 82vh;
+}
+
+#custom_ad_modal img,#custom_ad_modal_my_city img{
+   transform: rotate(-90deg);
+     height: 200px;
+    margin-top: 22%;
+
+}
+
+.custom_add_available_my_city_page .ion_slide_my_city{
+  margin-top: 142px!important;
+}
+
+.modal-dialog {
+  margin: 0px!important;
+   
+  }  
+
+.choose_your_other_cities{
+      position: absolute;
+    top: 8px!important;
+    right: 20px!important;
+    z-index: 999999!important;
+    width: 9px!important;
+    height: 14px!important;
+    border-radius: 50%!important;
+}
+
+.badge1{
+    display: inline-block;
+    padding: 1em 1.4em!important;
+        margin: 4px 5px 4px 0px;
+}
+
+.badge-light {
+    color: #212529;
+    background-color: #e1e2e2!important;
+}
+
+
+.swiper-container>.swiper-wrapper{
+  -webkit-transition-timing-function:linear!important; 
+  -o-transition-timing-function:linear!important; 
+  transition-timing-function:linear!important; 
+}
+
+.top_notification_count_badge{
+  font-size: 12px;
+    padding: 2px;
+    top: 1px;
+}
+
+.radio_play_modal_container{
+  background: #000000;
+}
+
+

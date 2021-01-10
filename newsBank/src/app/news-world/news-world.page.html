@@ -1,0 +1,120 @@
+<ion-app>
+    <ion-header [translucent]="true" >
+        <ion-toolbar color="primary" class="top_bar_container">
+            <ion-buttons slot="start">
+                <ion-menu-button></ion-menu-button>
+            </ion-buttons>
+            <ion-buttons slot="secondary">
+                <ion-button [routerLink]="['/', 'search']">
+                    <ion-icon slot="icon-only" name="search"></ion-icon>
+                </ion-button>
+                <ion-button [routerLink]="['/', 'live-tv']">
+                    <ion-icon  name="tv-outline"></ion-icon>
+                </ion-button>
+
+                <ion-button [routerLink]="['/', 'radio']">
+                    <ion-icon name="radio-outline"></ion-icon>
+                </ion-button>
+
+                <ion-button [routerLink]="['/', 'bookmarked-news']">
+                    <ion-icon name="bookmark-outline"></ion-icon>
+                </ion-button>
+                <ion-tab-button  style="background:none;color:#fff" [routerLink]="['/', 'notifications-news']"  >
+         
+         <ion-badge *ngIf="count_notification_received>0" class="top_notification_count_badge" color="danger">{{count_notification_received}}</ion-badge>
+         <ion-icon name="notifications-sharp"></ion-icon>
+
+     </ion-tab-button>
+            </ion-buttons>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content>
+        <ion-toolbar>
+
+            <ion-segment class="ion_segment_news_world" scrollable value="0">
+
+
+
+                <ion-segment-button class="home_secondary_heading" *ngFor="let category of categories; let i = index" value="{{i}}" >
+                    {{category?.category.title}}
+                </ion-segment-button>
+                
+            
+
+
+            </ion-segment>
+        </ion-toolbar>
+
+        <ion-slides class="ion_slides_news_world">
+
+            <ion-slide *ngFor="let category of categories;  let i = index" class="slide-{{i}}"  >
+
+              
+				
+	<div class="row no-gutters" style="width: 100%" >
+					 	
+ 									
+			  <div class="col-4 ion-no-padding no-gutters"  *ngFor="let news_world of category?.news_world"  >
+			<ion-card  button class="live_tv_item"  [routerLink]="['/', 'news-world-details', news_world.nw_id]" >
+				
+				<div class="live_tv_logo_container">
+					<img src="{{news_world.logo}}" width="70">
+				</div>
+
+				<div>{{news_world.title}}</div>
+
+			</ion-card>	
+		</div>
+
+			
+
+ 
+
+ 
+
+				</div>
+
+
+
+
+            </ion-slide>
+
+        
+
+        </ion-slides>
+
+         
+    </ion-content>
+
+
+
+    <ion-footer>
+        <ion-toolbar>
+            <ion-tabs>
+                <ion-tab-bar slot="bottom">
+                    <ion-tab-button routerLink='/home'>
+                        <ion-icon name="home-outline"></ion-icon>
+                        <ion-label>होम</ion-label>
+                    </ion-tab-button>
+                    <ion-tab-button routerLink='/my-city'>
+                        <ion-icon name="location-outline"></ion-icon>
+                        <ion-label>मेरा शहर</ion-label>
+                    </ion-tab-button>
+                    <ion-tab-button routerLink='/trending'>
+                        <ion-icon name="analytics"></ion-icon>
+                        <ion-label>ट्रेंडिंग</ion-label>
+                    </ion-tab-button>
+                    <ion-tab-button routerLink='/news-gallery'>
+                        <ion-icon name="images-outline"></ion-icon>
+                        <ion-label>न्यूज़ गैलरी</ion-label>
+                    </ion-tab-button>
+                    <ion-tab-button routerLink='/news-world'>
+                        <ion-icon name="globe-outline"></ion-icon>
+                        <ion-label>न्यूज़ वर्ल्ड</ion-label>
+                    </ion-tab-button>
+                </ion-tab-bar>
+            </ion-tabs>
+        </ion-toolbar>
+    </ion-footer>
+     
+</ion-app>

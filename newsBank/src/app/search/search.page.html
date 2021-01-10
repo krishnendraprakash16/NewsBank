@@ -1,0 +1,104 @@
+<ion-app>
+
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+
+
+  <ion-searchbar color="primary" (ionInput)="search($event)" animated="true" placeholder="शब्द टाइप करें" ></ion-searchbar>
+
+
+ 
+    
+
+  </ion-toolbar>
+</ion-header>
+ 
+
+
+
+<ion-content   class="ion-padding">
+  
+   
+   <ion-spinner class="loader" style="display: none" name="dots"></ion-spinner>
+
+  
+    
+    
+
+
+  <ion-row lines="none"  button *ngFor="let item of latest_news?.news; let i = index" >
+
+      
+
+
+    <ng-template [ngIf]="((i==3) || (i%9==0) && i!=0)"   >
+    
+
+    <ion-row lines="none"  button *ngFor="let ad of ads?.ads" >
+
+         <app-ad-item [ad]="ad" style="width:100%"></app-ad-item>
+
+      </ion-row>
+
+
+     
+  </ng-template>
+
+         <app-news-item [item]="item" style="width:100%"></app-news-item>
+
+
+  </ion-row>
+
+
+
+        <div id="skeleton" *ngIf="!latest_news">
+            <ion-list>
+                <ion-item *ngFor="let skelton_list_item of skelton_list_items">
+                    <!--  <ion-avatar slot="start">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-avatar> -->
+                    <ion-label>
+                        <h3>
+                            <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+                        </h3>
+                        <p>
+                            <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+                        </p>
+                        <p>
+                        </p>
+                    </ion-label>
+                </ion-item>
+            </ion-list>
+        </div>
+
+
+
+ 
+
+
+
+ 
+
+
+ 
+
+
+
+ 
+ 
+
+</ion-content>	
+
+ 
+
+
+
+
+   
+
+ 
+ 
+</ion-app>

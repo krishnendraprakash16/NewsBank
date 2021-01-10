@@ -1,0 +1,8 @@
+{
+  "name": "newsBank",
+  "integrations": {
+    "cordova": {},
+    "capacitor": {}
+  },
+  "type": "angular"
+}

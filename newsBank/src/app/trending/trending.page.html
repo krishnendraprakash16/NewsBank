@@ -1,0 +1,142 @@
+<ion-app>
+
+ <ion-header [translucent]="true" >
+        <ion-toolbar color="primary" class="top_bar_container">
+            <ion-buttons slot="start">
+                <ion-menu-button></ion-menu-button>
+            </ion-buttons>
+             <ion-buttons slot="secondary">
+                <ion-button [routerLink]="['/', 'search']">
+                    <ion-icon slot="icon-only" name="search"></ion-icon>
+                </ion-button>
+                <ion-button [routerLink]="['/', 'live-tv']">
+                    <ion-icon  name="tv-outline"></ion-icon>
+                </ion-button>
+
+                <ion-button [routerLink]="['/', 'radio']">
+                    <ion-icon name="radio-outline"></ion-icon>
+                </ion-button>
+
+                <ion-button [routerLink]="['/', 'bookmarked-news']">
+                    <ion-icon name="bookmark"></ion-icon>
+                </ion-button>
+                <ion-tab-button  style="background:none;color:#fff" [routerLink]="['/', 'notifications-news']"  >
+         
+         <ion-badge *ngIf="count_notification_received>0" class="top_notification_count_badge" color="danger">{{count_notification_received}}</ion-badge>
+         <ion-icon name="notifications-sharp"></ion-icon>
+
+     </ion-tab-button>
+            </ion-buttons>
+        </ion-toolbar>
+    </ion-header>
+ 
+
+
+
+<ion-content   class="ion-padding">
+  
+    
+  
+    
+    
+    <div id="skeleton" *ngIf="!trending_tags">
+
+  <div class="custom-skeleton">
+
+      <ion-thumbnail slot="start" animated style="width: 47%;height:38px;float: left;margin:4px ">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-thumbnail>
+ 
+
+     <ion-thumbnail slot="start" animated style="width: 47%;height:38px;float: left;margin:4px">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-thumbnail>
+ 
+ 
+
+      <ion-thumbnail slot="start" animated style="width: 47%;height:38px;float: left;margin:4px ">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-thumbnail>
+ 
+
+     <ion-thumbnail slot="start" animated style="width: 47%;height:38px;float: left;margin:4px">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-thumbnail>
+
+  </div>
+
+   
+</div>
+
+
+
+<ion-list size="12" class="btn_tag_container"  >
+ 
+  <ion-item class="btn_tag_inner ion-no-padding" lines="none" *ngFor="let trending_tag of trending_tags"  >
+
+     
+    <div  style="background:{{trending_tag.bg_color_code}}" class="btn_district" button  [routerLink]="['/', 'tag-details', trending_tag.t_id]"> 
+
+  {{trending_tag?.tag.title}}
+
+  </div>
+
+   </ion-item>
+
+
+   
+  
+  </ion-list>
+ 
+
+
+
+ 
+
+
+ 
+
+
+
+ 
+ 
+
+</ion-content>  
+
+ 
+
+
+<ion-footer>
+        <ion-toolbar>
+            <ion-tabs>
+                <ion-tab-bar slot="bottom">
+                    <ion-tab-button routerLink='/home'>
+                        <ion-icon name="home-outline"></ion-icon>
+                        <ion-label>होम</ion-label>
+                    </ion-tab-button>
+                    <ion-tab-button routerLink='/my-city'>
+                        <ion-icon name="location-outline"></ion-icon>
+                        <ion-label>मेरा शहर</ion-label>
+                    </ion-tab-button>
+                    <ion-tab-button routerLink='/trending'>
+                        <ion-icon name="analytics"></ion-icon>
+                        <ion-label>ट्रेंडिंग</ion-label>
+                    </ion-tab-button>
+                    <ion-tab-button routerLink='/news-gallery'>
+                        <ion-icon name="images-outline"></ion-icon>
+                        <ion-label>न्यूज़ गैलरी</ion-label>
+                    </ion-tab-button>
+                    <ion-tab-button routerLink='/news-world'>
+                        <ion-icon name="globe-outline"></ion-icon>
+                        <ion-label>न्यूज़ वर्ल्ड</ion-label>
+                    </ion-tab-button>
+                </ion-tab-bar>
+            </ion-tabs>
+        </ion-toolbar>
+    </ion-footer>
+
+   
+
+ 
+ 
+</ion-app>

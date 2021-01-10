@@ -1,0 +1,128 @@
+<ion-app>
+
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title size="small">{{category?.title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+ 
+
+
+
+<ion-content   class="ion-no-padding">
+
+
+<ion-refresher slot="fixed" pull-min="10" pull-max="20" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+
+
+
+<ion-row lines="none"  button *ngFor="let item of latest_news; let i = index"  >
+
+ 
+<!-- 
+
+  <ng-template [ngIf]="((i==3) || (i%9==0) && i!=0)"   >
+  
+
+  <ion-row lines="none"  button *ngFor="let ad of ads?.ads" >
+
+       <app-ad-item [ad]="ad" style="width:100%"></app-ad-item>
+
+    </ion-row>
+
+
+   
+</ng-template>
+ -->
+
+
+
+
+
+    
+   <app-news-item [item]="item" style="width:100%"></app-news-item>
+
+
+</ion-row>
+
+
+     
+
+ 
+
+<div id="skeleton" *ngIf="!latest_news">
+   
+
+  <ion-list>
+     
+    <ion-item *ngFor="let skelton_list_item of skelton_list_items" >
+     <!--  <ion-avatar slot="start">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-avatar> -->
+      <ion-label>
+        <h3>
+          <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+        </h3>
+        <p>
+          <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+        </p>
+        <p>
+         </p>
+      </ion-label>
+    </ion-item>
+
+  </ion-list>
+
+ 
+</div>
+ 
+
+
+
+
+
+ <ion-infinite-scroll threshold="70%" (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+ 
+ 
+
+</ion-content>	
+
+ 
+
+
+
+
+
+    <div class="modal fade" id="custom_ad_modal" data-backdrop="false">
+  <div class="modal-dialog " role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        
+        <!-- <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5> -->
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <div class="custom_ad_modal_body"></div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+   
+
+ 
+ 
+</ion-app>

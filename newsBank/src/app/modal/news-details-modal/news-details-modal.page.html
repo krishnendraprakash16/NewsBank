@@ -1,0 +1,40 @@
+ 
+    
+    <ion-content>
+      <ion-list>
+        <ion-item lines="none" style="padding:5px 10px" class="">
+          {{title}}
+           
+        </ion-item>
+        
+        
+        <ion-item lines="none" class=" ">
+          <a style="text-decoration: none;" href="https://api.whatsapp.com/send?text={{share_title + news_url}}" data-action="share/whatsapp/share"> 
+
+ 
+
+          <img src="../../assets/images/icon_whatsapp.png" width="20" /> &nbsp;&nbsp; WhatsApp
+        
+        </a>
+
+
+        </ion-item>
+
+        <ion-item lines="none" class=" " (click)="socialShare(share_title,news_url)">
+           
+          <ion-icon color="dark" name="share-social"></ion-icon>&nbsp;&nbsp;  शेयर करे 
+        
+
+        </ion-item>
+
+
+          <ion-item lines="none" class=" " (click)="add_bookmark_news(post_id)" >
+           
+           <ion-icon color="dark" name="bookmark" ></ion-icon>&nbsp;&nbsp;  बूकमार्क करे 
+         
+
+        </ion-item>
+
+
+      </ion-list>
+    </ion-content>

@@ -1,0 +1,343 @@
+<ion-app>
+    <ion-header [translucent]="true" [myScrollVanish]="scrollArea">
+        <ion-toolbar color="primary" class="top_bar_container"  >
+            <ion-buttons slot="start">
+                <ion-menu-button></ion-menu-button>
+            </ion-buttons>
+            <ion-buttons slot="secondary">
+                <ion-button [routerLink]="['/', 'search']">
+                    <ion-icon slot="icon-only" name="search"></ion-icon>
+                </ion-button>
+                <ion-button [routerLink]="['/', 'live-tv']">
+                    <ion-icon  name="tv-outline"></ion-icon>
+                </ion-button>
+
+                <ion-button [routerLink]="['/', 'radio']">
+                    <ion-icon name="radio-outline"></ion-icon>
+                </ion-button>
+
+                <ion-button [routerLink]="['/', 'bookmarked-news']">
+                    <ion-icon name="bookmark"></ion-icon>
+                </ion-button>
+               
+
+               <ion-tab-button  style="background:none;color:#fff" [routerLink]="['/', 'notifications-news']"  >
+         
+         <ion-badge *ngIf="count_notification_received>0" class="top_notification_count_badge" color="danger">{{count_notification_received}}</ion-badge>
+         <ion-icon name="notifications-sharp"></ion-icon>
+
+     </ion-tab-button>
+
+
+
+
+            </ion-buttons>
+        </ion-toolbar>
+
+
+
+
+
+    </ion-header>
+
+
+
+
+
+
+
+
+
+
+    <ion-content  #scrollArea scrollEvents="true">
+        
+
+
+<ion-refresher slot="fixed" pull-min="10" pull-max="20" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+        
+        <ion-toolbar slot="fixed">
+            <ion-segment class="ion_segment_home" scrollable value="0">
+                
+                <ion-segment-button (click)="onSegmentChange(0,0)" class="home_secondary_heading" value="0" id="segment-{{0}}">
+                    टॉप न्यूज़
+                </ion-segment-button>
+
+
+                <ion-segment-button  class="home_secondary_heading"  *ngFor="let home_top_bar_news_category of home_top_bar_news_category_all; let i = index" value="{{i+1}}"  id="segment-{{i+1}}" 
+                (click)="onSegmentChange(home_top_bar_news_category?.cp_id,i+1)">
+                        
+                        {{home_top_bar_news_category?.title}}
+
+                </ion-segment-button>
+                
+
+
+
+
+            </ion-segment>
+ 
+ 
+
+ <div class="home_user_district_news_container">
+                <div  class="home_user_city_news row font_medium" style="display: inline-flex;width:100%;padding:5px 10px; " >
+                     <div class="col" style="float: left;text-align: left;" >
+                        
+                        <ion-icon name="location"></ion-icon> <span class="user_district">{{user_district}}</span>
+
+                    </div>
+
+                
+                    <div class="col" style="" [routerLink]="['/', 'choose-your-city']">
+
+                        <span style="float: right;text-align: right;">अपना शहर बदलें <ion-icon name="pencil"></ion-icon> </span>
+
+                    </div>
+
+
+                </div>
+
+ 
+
+                <ion-row  class="home_user_city_news_r2  top_scroll_container" style=" " >
+                    
+                 <ion-slides   [options]="slideOpts"  #myslides class="ion_slide_home_user_district_news"  >
+  
+                  
+
+  
+                    <ion-slide  class="top_scroll_inner " *ngFor="let user_dirtrict_news of user_dirtrict_latest_news">
+ 
+
+                            
+                            <ion-title size="small"  lines="full" class=" ion-no-padding" [routerLink]="['/', 'news-details', user_dirtrict_news.post_id]" > 
+                               <div class="text_2_lines"> {{user_dirtrict_news?.title}}</div>  
+
+                                <div style="font-size:11px;padding-top:5px;" class="text_2_lines" > 
+                                
+                                    <span class="news_list_bottom_info_left"> {{user_dirtrict_news?.source_website}} </span> | 
+                                    <span class="news_list_bottom_info_right"> {{user_dirtrict_news?.imported_date}} </span>
+
+                                 </div>
+                            </ion-title>
+
+ 
+                   
+
+
+        </ion-slide>
+
+</ion-slides>
+                   
+
+ 
+ 
+                </ion-row>
+
+
+</div>
+
+
+<!-- 
+
+ <ion-row lines="none"  button  style="padding: 0px;margin:0px" >
+    <ion-col size="12" style="padding: 0px;margin:0px">
+        <ion-slides [options]="slideOptsOne" #slideWithNav   >
+           <ion-slide *ngFor="let ad of ads?.ads">
+           <app-ad-item [ad]="ad" style="width:100%"></app-ad-item>
+
+
+            </ion-slide>
+        </ion-slides>
+
+    </ion-col> 
+  </ion-row>
+  -->
+
+</ion-toolbar>
+
+
+
+
+
+
+
+<div [ngClass]="{'custom_add_available_home_page-------': ads?.ads.length>0}">
+
+
+
+
+        <ion-slides class="ion_slides_home" (ionSlideDidChange)="onSlideDidChange($event)">
+
+            <ion-slide class="slide-1">
+
+
+
+
+
+                <ion-list style="width:100%">
+
+ 
+
+
+
+
+
+                    <ion-row lines="none" button *ngFor="let category_news of home_latest_news" >
+
+                        <div class="cat_heading_container" [routerLink]="['/', 'category-details', category_news.category.cp_id]" style="border-top:4px solid {{category_news.category.bg_color_code}}">
+                            <div class="cat_heading" style="color:{{category_news.category.text_color_code}};background:{{category_news.category.bg_color_code}};border-top:32px solid {{category_news.category.bg_color_code}};">
+                                <span class="cat_heading_left">
+                                    {{category_news.category?.title}}
+                                </span>
+                            </div>
+                            <div class="cat_heading_right" [routerLink]="['/', 'category-details', category_news.category.cp_id]">और पढ़ें</div>
+                        </div>
+                      
+                        <ion-row lines="none" button *ngFor="let item of category_news.news" style="width:100%">
+                            <app-news-item [item]="item" style="width:100%"></app-news-item>
+                        </ion-row>
+                    </ion-row>
+                </ion-list>
+            </ion-slide>
+
+
+
+
+            <ion-slide class="mt-5" *ngFor="let home_top_bar_news_category of home_top_bar_news_category_all;  let i = index" 
+            class="slide-{{i+1}}"  >
+
+                <ion-list>
+                                            <ion-spinner class="spinner" style="display: none;width: 20px;height:20px;" name="crescent"> Loading</ion-spinner>
+
+                        
+                        
+
+                    <ion-row lines="none" class="ion-no-padding" 
+                    *ngFor="let item of home_top_bar_news_all[home_top_bar_news_category.cp_id]">
+
+
+
+                        <app-news-item [item]="item" style="width:100%"></app-news-item>
+                    </ion-row>
+
+
+
+
+
+
+                  
+
+
+                </ion-list>
+
+
+
+ 
+                    
+
+            </ion-slide>
+
+             
+
+             
+
+        </ion-slides>
+
+</div>
+
+
+        <div id="skeleton" *ngIf="!home_latest_news">
+            <ion-list>
+                <ion-item *ngFor="let skelton_list_item of skelton_list_items">
+                    <!--  <ion-avatar slot="start">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-avatar> -->
+                    <ion-label>
+                        <h3>
+                            <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+                        </h3>
+                        <p>
+                            <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+                        </p>
+                        <p>
+                        </p>
+                    </ion-label>
+                </ion-item>
+            </ion-list>
+        </div>
+
+
+
+
+
+
+
+  <ion-row *ngIf="current_cp_id" lines="none" class="ion-no-padding">  
+                     <ion-infinite-scroll threshold="70%" (ionInfinite)="doInfinite($event)">
+                        <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
+                        </ion-infinite-scroll-content>
+                      </ion-infinite-scroll>
+                  </ion-row>
+
+
+
+    </ion-content>
+    <ion-footer [myScrollVanish]="scrollArea">
+        <ion-toolbar>
+            <ion-tabs>
+                <ion-tab-bar slot="bottom">
+                    <ion-tab-button routerLink='/home'>
+                        <ion-icon name="home-outline"></ion-icon>
+                        <ion-label>होम</ion-label>
+                    </ion-tab-button>
+                    <ion-tab-button routerLink='/my-city'>
+                        <ion-icon name="location-outline"></ion-icon>
+                        <ion-label>मेरा शहर</ion-label>
+                    </ion-tab-button>
+                    <ion-tab-button routerLink='/trending'>
+                        <ion-icon name="analytics"></ion-icon>
+                        <ion-label>ट्रेंडिंग</ion-label>
+                    </ion-tab-button>
+                    <ion-tab-button routerLink='/news-gallery'>
+                        <ion-icon name="images-outline"></ion-icon>
+                        <ion-label>न्यूज़ गैलरी</ion-label>
+                    </ion-tab-button>
+                    <ion-tab-button routerLink='/news-world'>
+                        <ion-icon name="globe-outline"></ion-icon>
+                        <ion-label>न्यूज़ वर्ल्ड</ion-label>
+                    </ion-tab-button>
+                </ion-tab-bar>
+            </ion-tabs>
+        </ion-toolbar>
+    </ion-footer>
+
+
+
+
+
+
+    <div class="modal fade" id="custom_ad_modal" data-backdrop="false">
+  <div class="modal-dialog " role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        
+        <!-- <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5> -->
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <div class="custom_ad_modal_body"></div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+
+</ion-app>

@@ -1,0 +1,94 @@
+<ion-app>
+
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title size="small">बूकमार्क</ion-title>
+
+    <ion-buttons slot="secondary">
+ 
+     
+  
+  
+    <ion-button  class=" "     (click)="bookmark_empty_alert()">
+      <ion-icon  name="trash"></ion-icon>
+      </ion-button>
+  
+  
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+ 
+    <ion-content>
+         
+
+         
+ 
+
+
+
+
+  <ion-row lines="none"  button *ngFor="let item of bookmarked_news?.news" >
+
+    
+
+
+         <app-news-item [item]="item" style="width:100%"></app-news-item>
+
+
+  </ion-row>
+
+
+
+        <div id="skeleton" *ngIf="!data_loaded">
+            <ion-list>
+                <ion-item *ngFor="let skelton_list_item of skelton_list_items">
+                    <!--  <ion-avatar slot="start">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-avatar> -->
+                    <ion-label>
+                        <h3>
+                            <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+                        </h3>
+                        <p>
+                            <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+                        </p>
+                        <p>
+                        </p>
+                    </ion-label>
+                </ion-item>
+            </ion-list>
+        </div>
+    </ion-content>
+    <ion-footer>
+        <ion-toolbar>
+            <ion-tabs>
+                <ion-tab-bar slot="bottom">
+                    <ion-tab-button routerLink='/home'>
+                        <ion-icon name="home-outline"></ion-icon>
+                        <ion-label>होम</ion-label>
+                    </ion-tab-button>
+                    <ion-tab-button routerLink='/my-city'>
+                        <ion-icon name="location-outline"></ion-icon>
+                        <ion-label>मेरा शहर</ion-label>
+                    </ion-tab-button>
+                    <ion-tab-button routerLink='/trending'>
+                        <ion-icon name="analytics"></ion-icon>
+                        <ion-label>ट्रेंडिंग</ion-label>
+                    </ion-tab-button>
+                    <ion-tab-button routerLink='/news-gallery'>
+                        <ion-icon name="images-outline"></ion-icon>
+                        <ion-label>न्यूज़ गैलरी</ion-label>
+                    </ion-tab-button>
+                    <ion-tab-button routerLink='/news-world'>
+                        <ion-icon name="globe-outline"></ion-icon>
+                        <ion-label>न्यूज़ वर्ल्ड</ion-label>
+                    </ion-tab-button>
+                </ion-tab-bar>
+            </ion-tabs>
+        </ion-toolbar>
+    </ion-footer>
+</ion-app>

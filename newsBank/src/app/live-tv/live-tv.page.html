@@ -1,0 +1,82 @@
+<ion-content   class="ion-no-padding">
+
+
+<div id="skeleton" *ngIf="!live_tvs">
+
+  <div class="  custom-skeleton">
+
+    <ion-thumbnail slot="start" animated style="width: 100%;height:250px">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-thumbnail>
+ 
+  </div>
+
+   
+</div>
+
+
+
+
+
+
+
+
+
+
+<ion-grid id="live_tv_page" class="ion-no-padding portrait">
+
+<ion-row id="live_tv_container" class="live_tv_container  ion-no-padding">
+	<ion-col  >
+
+
+
+ 				 <ion-icon (click)="fullScreen()" class="icon_video_full_screen" name="expand"></ion-icon> 
+
+ 		<video  id="live_tv_embed" width="100%"   autoplay loop  >
+			<source src="" type="application/x-mpegURL">
+
+		</video>
+
+
+
+<div  class="live_tv_current_title"> </div>
+
+	</ion-col>
+</ion-row>
+
+
+
+	<ion-row class="live_tv_item_container" >
+		
+		<ion-col size="4"  *ngFor="let live_tv of live_tvs">
+			<ion-card  button class="live_tv_item" (click)="showTheLiveTv(live_tv.title,live_tv.embed_url)">
+				
+				<div class="live_tv_logo_container">
+					<img src="{{live_tv.logo}}" width="70">
+				</div>
+
+				<div>{{live_tv.title}}</div>
+
+			</ion-card>	
+		</ion-col>
+
+
+ 
+
+	</ion-row>
+</ion-grid>
+ 
+
+     
+
+ 
+
+
+ 
+
+
+
+ 
+ 
+
+</ion-content>

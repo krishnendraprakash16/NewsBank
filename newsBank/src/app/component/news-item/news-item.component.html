@@ -1,0 +1,49 @@
+<ion-card class="news_item_list_card_container ion-no-padding">
+
+
+  <ion-row class="news_item_list_card_container_row">
+    <ion-col  size="6" *ngIf="item.main_image_thumb" class="cat_list_first ion-no-padding" [routerLink]="['/', 'news-details', item.post_id]">
+         <img class="cat_list_first_img" [src]="item.main_image_thumb"  style="width:100%" *ngIf="item.main_image_thumb != 'N/A'">
+   
+    </ion-col>
+   
+    <ion-col  [size]="item.main_image_thumb ? '6' : '12' "  class="ion-no-padding">
+  
+   <ion-item class="ion-no-padding"   lines="none" style="padding: 0px 8px;">
+  
+   
+      
+      <div   class="text_3_lines news_listing_title ion-no-padding"  [routerLink]="['/', 'news-details', item.post_id]"> 
+  
+    {{item.title}}
+  
+    </div>
+  
+     </ion-item>
+  
+  
+    <ion-item lines="none" class="ion-no-padding news_item_list_r2" style="padding:0px;margin:-4px 0px 0px 0px;height:35px ">
+      
+      <ion-label class=""  style="padding:2px 6px;min-height:25px; ">
+  
+         <div style="font-size:11px;padding-top:0px;" class="  text_3_lines" > 
+                                  
+                                      <span class="news_list_bottom_info_left"> {{item?.source_website}} </span> | 
+                                      <span class="news_list_bottom_info_right"> {{item?.imported_date}} </span>
+  
+         </div>
+  
+  
+    </ion-label>
+  
+    <ion-icon class="ellipsis_vertical"   (click)="news_share_modal(item?.post_id,item?.title,item?.imported_news_url)" name="ellipsis-vertical"></ion-icon>
+    </ion-item>
+    
+    </ion-col>
+  </ion-row>
+  
+  
+    
+   
+  </ion-card>
+  

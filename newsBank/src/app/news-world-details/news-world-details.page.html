@@ -1,0 +1,95 @@
+<ion-app>
+
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="font_medium" size="large">{{ item?.title }}</ion-title>
+
+
+
+    <ion-buttons slot="secondary">
+ 
+      <ion-button (click)="reload_page()">
+        <ion-icon name="refresh"></ion-icon>
+      </ion-button>
+  
+    
+  
+   
+  
+    </ion-buttons>
+ 
+    
+
+  </ion-toolbar>
+</ion-header>
+ 
+
+
+
+<ion-content   class="ion-on-padding">
+  
+   
+  
+  <div id="skeleton" *ngIf="!item">
+
+  <div class="  custom-skeleton">
+
+    <ion-thumbnail slot="start" animated style="width: 100%;height:250px">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-thumbnail>
+
+  <br>
+    <ion-skeleton-text animated style="width: 90%"></ion-skeleton-text>
+    <ion-skeleton-text animated></ion-skeleton-text>
+    <ion-skeleton-text animated style="width: 88%"></ion-skeleton-text>
+    <ion-skeleton-text animated style="width: 90%"></ion-skeleton-text>
+    <ion-skeleton-text animated style="width: 90%"></ion-skeleton-text>
+    <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+    <ion-skeleton-text animated></ion-skeleton-text>
+    <ion-skeleton-text animated style="width: 88%"></ion-skeleton-text>
+    <ion-skeleton-text animated style="width: 90%"></ion-skeleton-text>
+    <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+    <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+    <ion-skeleton-text animated></ion-skeleton-text>
+    <ion-skeleton-text animated style="width: 88%"></ion-skeleton-text>
+    <ion-skeleton-text animated style="width: 90%"></ion-skeleton-text>
+    <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+  </div>
+
+   
+</div>
+
+
+ <iframe [src]="sanitizer.bypassSecurityTrustResourceUrl(item?.source_url)"    width="100%" height="100%" frameborder="0" name="SELFHTML_in_a_box">
+ Sorry, but your browser can't display iframes   
+</iframe>
+
+
+
+    
+
+ 
+
+
+ 
+
+
+
+ 
+ 
+
+</ion-content>	
+
+ 
+
+
+
+
+   
+
+ 
+ 
+</ion-app>

@@ -1,0 +1,116 @@
+<ion-app>
+    <ion-header [translucent]="true" >
+        <ion-toolbar color="primary" class="top_bar_container">
+            <ion-buttons slot="start">
+                <ion-menu-button></ion-menu-button>
+            </ion-buttons>
+            <ion-buttons slot="secondary">
+                <ion-button [routerLink]="['/', 'search']">
+                    <ion-icon slot="icon-only" name="search"></ion-icon>
+                </ion-button>
+                <ion-button [routerLink]="['/', 'live-tv']">
+                    <ion-icon  name="tv-outline"></ion-icon>
+                </ion-button>
+
+                <ion-button [routerLink]="['/', 'radio']">
+                    <ion-icon name="radio-outline"></ion-icon>
+                </ion-button>
+
+                <ion-button [routerLink]="['/', 'bookmarked-news']">
+                    <ion-icon name="bookmark"></ion-icon>
+                </ion-button>
+                <ion-tab-button  style="background:none;color:#fff" [routerLink]="['/', 'notifications-news']"  >
+         
+         <ion-badge *ngIf="count_notification_received>0" class="top_notification_count_badge" color="danger">{{count_notification_received}}</ion-badge>
+         <ion-icon name="notifications-sharp"></ion-icon>
+
+     </ion-tab-button>
+            </ion-buttons>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content>
+        <ion-toolbar>
+            <ion-segment class="ion_segment_radio" scrollable value="0">
+
+
+
+                <ion-segment-button class="home_secondary_heading" *ngFor="let category of categories; let i = index" value="{{i}}" >
+                    {{category?.category.title}}
+                </ion-segment-button>
+                
+            
+
+
+            </ion-segment>
+        </ion-toolbar>
+
+        <ion-slides class="ion_slides_radio">
+
+            <ion-slide *ngFor="let category of categories;  let i = index" class="slide-{{i}}"  >
+
+              
+				
+				<ion-list style="width:100%">
+					
+					<ion-item    *ngFor="let radio of category?.radios" style="width:100%"  >
+						
+						
+ 									
+						<ion-card button class="ion-no-padding" style="width:100%" (click)="playRadio(radio.title,radio.rd_id,radio.embed_url)">
+
+<ion-row style="width:100%">
+  <ion-col  size="4" *ngIf="radio.logo" class="cat_list_first ion-no-padding">
+         <img class="cat_list_first_img" [src]="radio.logo" *ngIf="radio.logo != 'N/A'">
+  
+
+  </ion-col>
+ 
+  <ion-col>
+
+ <ion-item lines="none" style="padding-top: 3px;">
+
+
+     
+    
+    <ion-title size="small"  lines="full" class="ion-no-padding"  > 
+
+  {{radio.title}}
+
+  </ion-title>
+
+   </ion-item>
+
+
+ 
+  
+  </ion-col>
+</ion-row>
+
+
+
+  
+ 
+</ion-card>
+
+			
+
+ 
+
+
+					</ion-item>
+
+				</ion-list>
+
+
+
+
+            </ion-slide>
+
+        
+
+        </ion-slides>
+
+         
+    </ion-content>
+     
+</ion-app>

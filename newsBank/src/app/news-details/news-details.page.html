@@ -1,0 +1,149 @@
+<ion-app>
+
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="font_medium" size="large">{{ item?.title }}</ion-title>
+
+
+
+    <ion-buttons slot="secondary">
+ 
+      <ion-button (click)="reload_page()">
+        <ion-icon name="refresh"></ion-icon>
+      </ion-button>
+  
+   
+  
+    <ion-button class="btn_share" (click)="news_share_modal(item?.post_id,item?.title,item?.imported_news_url)" >
+      <ion-icon name="share-social"></ion-icon>
+      </ion-button>
+  
+  
+  
+    <ion-button id="btn_bookmark_news_{{item?.post_id}}" class="btn_bookmark_news"     (click)="bookmark_news(item?.post_id)">
+      <ion-icon  name="{{icon_notification}}"></ion-icon>
+      </ion-button>
+  
+  
+    </ion-buttons>
+ 
+    
+
+  </ion-toolbar>
+</ion-header>
+ 
+
+
+
+<ion-content   class="ion-on-padding">
+  
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="chevron-down-circle-outline"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  
+  <div id="skeleton" *ngIf="!item">
+
+  <div class="custom-skeleton">
+
+    <ion-thumbnail slot="start" animated style="width: 100%;height:250px">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-thumbnail>
+
+  <br>
+    <ion-skeleton-text animated style="width: 90%"></ion-skeleton-text>
+    <ion-skeleton-text animated></ion-skeleton-text>
+    <ion-skeleton-text animated style="width: 88%"></ion-skeleton-text>
+    <ion-skeleton-text animated style="width: 90%"></ion-skeleton-text>
+    <ion-skeleton-text animated style="width: 90%"></ion-skeleton-text>
+    <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+    <ion-skeleton-text animated></ion-skeleton-text>
+    <ion-skeleton-text animated style="width: 88%"></ion-skeleton-text>
+    <ion-skeleton-text animated style="width: 90%"></ion-skeleton-text>
+    <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+    <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+    <ion-skeleton-text animated></ion-skeleton-text>
+    <ion-skeleton-text animated style="width: 88%"></ion-skeleton-text>
+    <ion-skeleton-text animated style="width: 90%"></ion-skeleton-text>
+    <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+  </div>
+
+   
+</div>
+
+   
+
+ <iframe  *ngIf="!is_open_in_web_view" [src]="sanitizer.bypassSecurityTrustResourceUrl(item?.imported_news_url)"    width="100%" height="100%" frameborder="0" name="SELFHTML_in_a_box">
+ Sorry, but your browser can't display iframes   
+</iframe>
+ 
+
+
+
+<div *ngIf="is_open_in_web_view">    
+
+<div class="row" >
+
+<div  class="col-12">
+
+<img src="{{ item?.main_image }}">
+
+</div >
+
+</div>
+
+
+<div class="row p-3"  >
+
+ 
+
+ <div   class="col-11 pb-2">
+
+<h6    > <b> {{item?.title}} </b> </h6>
+ 
+</div >
+
+ <div  class="col-12 pb-2">
+
+<span >{{item?.source_website}}</span> &nbsp; <span >{{item?.imported_date}}</span>
+ 
+</div >
+
+ <div    class="text-justify" style="width: 95%;margin: 0px auto">
+
+<span     [innerHTML]="item?.body"></span>
+
+
+ 
+</div >
+
+</div>
+
+
+ 
+</div>
+
+
+ 
+ 
+
+</ion-content>	
+
+ 
+
+
+
+
+   
+
+ 
+ 
+</ion-app>

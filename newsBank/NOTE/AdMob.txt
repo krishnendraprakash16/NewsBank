@@ -1,0 +1,2 @@
+Ionic Plugin used
+https://ionicframework.com/docs/native/admob/

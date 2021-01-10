@@ -1,0 +1,31 @@
+news app errors only ---------
+1. There are three share links in app ie.  
+   1. App share link not working. it should be com.newsbank.app. 
+   2nd. News share to all aplications is working fine. 
+   3rd. News share link for whatsapp required a space. Also link not show full detailed items. ie. Source image, heading etc. at the time of sharing on whatsapp.
+
+- Fixed
+
+2.app closing dialogue box link for rating & in menu Rating link not redirecting to playstore. 
+
+- Fixed
+
+3.post which are created on admin panel when clicked on website shows nothing (blank) 
+
+- Click on website does nothing becasue we have not made frontend website . You can check in app not in website frontend.
+
+
+4. when opened a news link from notification from source website back button of phone does not work. 
+- If user open one page from another page then 'Back' button work.
+  In notification user directly open the notification . So, there no any back page history in app. It casue Back button not working.
+
+5. still banner ads are coming in the tv section. Not shown each time. But shows. 
+- I checked more than 10 times. There I did not find any ad showing .
+
+6. banner ads are visible on apps but revenue is not coming in the ad mob account. Review all admob functions. Also Firebase functions  & Analytics. 
+Account : ingnewsbank@gmail.com password: pinku0056
+- I checked there a google policy affecting it.
+   visit https://apps.admob.com/v2/policycenter?_ga=2.31559869.267585931.1605865449-1403020755.1605865449&pli=1
+  and https://support.google.com/adsense/thread/16070580?hl=en
+
+- And regarding 'Analytics or crashlytics etc' I have not agreed to do this from starting of this project, you can check our email.

@@ -1,0 +1,103 @@
+<ion-app>
+
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="font_medium" size="large">नोटिफिकेशन सेटिंग्स</ion-title>
+
+
+
+     
+ 
+    
+
+  </ion-toolbar>
+</ion-header>
+ 
+
+<style type="text/css">
+	.form-control {
+     
+    width: 91%;
+	}
+</style>
+
+
+<ion-content   class="ion-padding">
+  
+   
+
+   <div class="row">
+   	
+   	<div class="col">
+
+   		<form id="feedback" [formGroup]="myForm"  (ngSubmit)="submitNotificationSettingForm()" >
+   			 
+
+   			<div class="form-group">
+    			<label>Notification time interval</label>
+   				<select placeholder="Notification time interval" formControlName="notification_time_interval" 
+   				class="notification_time_interval form-control">
+   					<option [value]="15" >15 Minute</option>
+   					<option [value]="30"  >30 Minutes</option>
+   					<option [value]="60" >1 Hrs</option>
+   					<option [value]="120" >2 Hrs</option>
+   				</select>
+   			</div>
+   			
+
+   			<div class="form-group">
+   				 <label>Choose notification that you want to receive for your selected city</label>
+   			
+   			<table class="table table-striped">		
+   				<tr *ngFor="let user_other_district of user_other_districts">
+   					<td>{{user_other_district}}</td>  
+   					<td> <input type="checkbox" class="user_other_districts_did_for_notification" name="user_other_districts_did_for_notification" value="{{user_other_district}}" 
+   						[checked]="user_other_districts_did_for_notification.includes(user_other_district)"> </td>	
+
+   				</tr>	
+   			</table>
+   			
+
+   			</div>
+
+   			<div>
+   				<ion-button id="btn_submit" type="submit" color="primary">
+   					SUBMIT <ion-spinner style="display: none;" class="loader_submit_btn" name="crescent"></ion-spinner>
+   				</ion-button>
+   			</div>
+
+
+   		</form>
+   		
+   	</div>
+
+   </div>
+
+
+    
+
+ 
+
+
+ 
+
+
+
+ 
+ 
+
+</ion-content>	
+
+ 
+
+
+
+
+   
+
+ 
+ 
+</ion-app>

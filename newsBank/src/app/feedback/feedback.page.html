@@ -1,0 +1,87 @@
+<ion-app>
+
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="font_medium" size="large">Feedback</ion-title>
+
+
+
+     
+ 
+    
+
+  </ion-toolbar>
+</ion-header>
+ 
+
+<style type="text/css">
+	.form-control {
+     
+    width: 91%;
+	}
+</style>
+
+
+<ion-content   class="ion-padding">
+  
+   
+
+   <div class="row">
+   	
+   	<div class="col">
+
+   		<form id="feedback"  [formGroup]="myForm" (ngSubmit)="submitFeedback()" >
+   			<div class="form-group">
+   				इस ऍप को आपके लिए अधिक उपयोगी बनानेके लिए कृपया अपना  फ़ीडबैक / सुझाव साझा करें
+   			</div>
+
+   			<div class="form-group">
+   				<input type="text" class="name form-control" formControlName="name" name="name" placeholder="Name">
+   			</div>
+   			
+
+   			<div class="form-group">
+   				<textarea class="message form-control" style="height: 200px" formControlName="message" name="message" placeholder="Message"></textarea>
+   			</div>
+
+   			<div>
+   				<ion-button id="btn_submit" type="submit" color="primary">
+   					SUBMIT <ion-spinner style="display: none;" class="loader_submit_btn" name="crescent"></ion-spinner>
+   				</ion-button>
+   			</div>
+
+
+   		</form>
+   		
+   	</div>
+
+   </div>
+
+
+    
+
+ 
+
+
+ 
+
+
+
+ 
+ 
+
+</ion-content>	
+
+ 
+
+
+
+
+   
+
+ 
+ 
+</ion-app>

@@ -455,18 +455,37 @@ ion-thumbnail{
 
 #custom_ad_modal .modal-body,#custom_ad_modal_my_city .modal-body {
    
-    height: 82vh;
+    height: 88vh;
 }
 
 #custom_ad_modal img,#custom_ad_modal_my_city img{
    transform: rotate(-90deg);
-     height: 200px;
-    margin-top: 22%;
+    //  height: 200px;
+    margin-top: 60%;
+    position: absolute;
+    right: -14%;
+}
+
+
+#custom_ad_modal .modal-body,#custom_ad_modal_my_home .modal-body {
+   
+  height: 88vh;
+}
+
+#custom_ad_modal img,#custom_ad_modal_my_home img{
+ transform: rotate(-90deg);
+  //  height: 200px;
+  margin-top: 60%;
+  position: absolute;
+  right: -14%;
 
 }
 
 .custom_add_available_my_city_page .ion_slide_my_city{
   margin-top: 142px!important;
+}
+.img-fluid{
+  max-width: 140% !important;
 }
 
 .modal-dialog {

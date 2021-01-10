@@ -269,6 +269,7 @@ async get_user_district() {
     this.user_district=user_d?.title;
 	this.user_did=user_d?.id;
 
+  this.get_ad_of_district(this.user_did, 'id');
  
 
     this.dataService.get_latest_news_by_district(this.user_did,1).subscribe((result:any) => {
@@ -440,7 +441,6 @@ async get_user_district() {
 
 
 
-
 		 this.admobService.showBannerAd();
      this.admobService.checkThenshowInterstitialAd();
 
@@ -577,6 +577,26 @@ this.notificationService.count_notification_received().then(result=>{
 
   
   }
+
+
+get_ad_of_district(did,type){
+  
+  this.dataService.get_ad_of_district(did,type).subscribe(result => {
+      this.ads = result;
+    });
+
+}
+
+
+custom_ad_modal(img) {
+
+  (<HTMLElement>document.querySelector('#custom_ad_modal_my_home .custom_ad_modal_body')).innerHTML = "<img src='" + img + "' class='img-fluid'>";
+
+  return false;
+
+}
+
+
 
 
 

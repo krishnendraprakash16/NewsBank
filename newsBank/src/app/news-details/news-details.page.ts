@@ -52,7 +52,7 @@ is_open_in_web_view=false;
  
     ) {
 
-      this.platform.backButton.subscribeWithPriority(5, () => {
+      this.platform.backButton.subscribeWithPriority(1, () => {
         alert("back clicked");
         this.router.navigate(['./home'])
       });

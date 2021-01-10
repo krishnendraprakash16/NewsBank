@@ -3,13 +3,14 @@ import {BookmarkService} from '../provider/bookmark.service';
 
 import { Component, OnInit } from '@angular/core';
 
-import { ActivatedRoute } from '@angular/router';
+import { Router,ActivatedRoute } from '@angular/router';
 
 import {AdmobService } from '../provider/admob.service'
 
  import { DomSanitizer } from '@angular/platform-browser';
 
- import { ActionSheetController,ModalController  } from '@ionic/angular';
+ import { ActionSheetController,ModalController,Platform  } from '@ionic/angular';
+
 
  import { NewsDetailsModalPage } from '../modal/news-details-modal/news-details-modal.page';
  import { FirebaseDynamicLinks } from '@ionic-native/firebase-dynamic-links/ngx';
@@ -45,12 +46,17 @@ is_open_in_web_view=false;
     public modalController: ModalController,
     private bookmarkService: BookmarkService,
     private admobService:AdmobService,
-    public firebaseDynamicLinks: FirebaseDynamicLinks
+    public firebaseDynamicLinks: FirebaseDynamicLinks,private platform:Platform,private router:Router
 
 
  
     ) {
-      
+
+      this.platform.backButton.subscribeWithPriority(5, () => {
+        alert("back clicked");
+        this.router.navigate(['./home'])
+      });
+    
 
       //news opneed counter to show ad
       this.total_news_details_opened=localStorage.getItem('total_news_details_opened');
